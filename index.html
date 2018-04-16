@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+   <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <meta http-equiv="X-UA-Compatible" content="ie=edge">
+      <title>vtk demo</title>
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css" integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+      <style>
+         body {
+         margin: 0;
+         padding: 0;
+         }
+         .wrap {
+         display: flex;
+         }
+         .item {
+         flex: 1;
+         margin: 1px;
+         }
+         p {
+         margin: 3px;
+         font-size: 12px;
+         text-align: center;
+         }
+         .light-btn-container {
+         display: none;
+         position: absolute;
+         left: 25px;
+         top: 470px;
+         background-color: white;
+         border-radius: 5px;
+         list-style: none;
+         padding: 5px 10px;
+         margin: 0px;
+         border: 1px solid black;
+         max-width: calc(100vw - 70px);
+         max-height: calc(100vh - 60px);
+         overflow: auto;
+         }
+         .light-btn-container button {
+         margin: 5px;
+         width: 100px;
+         height: 30px;
+         }
+         .controlPanel {
+         display: none;
+         position: absolute;
+         left: 25px;
+         top: 170px;
+         background-color: white;
+         border-radius: 5px;
+         list-style: none;
+         padding: 5px 10px;
+         margin: 0px;
+         border: 1px solid black;
+         max-width: calc(100vw - 70px);
+         max-height: calc(100vh - 60px);
+         overflow: auto;
+         }
+         .myinput{
+         padding-left: 1.25rem;
+         padding-top: 0.5em;
+         }
+      </style>
+   </head>
+   <body>
+      <div class="card text-center">
+         <div class="card-header">Showcase for Polygonal Data</div>
+         <input type="file" accept=".zip,.obj" class="input myinput" />
+         <div class="card-body">
+            <p>This work aims at loading and visualizing polygonal data.</p>
+            <p>Enjoy your journey with these magic data!</p>
+            <div class="wrap">
+               <div class="item">
+                  <div class="content1"></div>
+                  <!-- <p>Wireframe(No shading or texture)</p> -->
+               </div>
+               <div class="item">
+                  <div class="content2"></div>
+                  <!-- <p>Surface(No shading or texture)</p> -->
+               </div>
+            </div>
+            <div class="wrap">
+               <div class="item">
+                  <div class="content3"></div>
+                  <!-- <p>Surface with texture map(No shading)</p> -->
+               </div>
+               <div class="item">
+                  <div class="content4"></div>
+                  <!-- <p>Surface with texture map and Phong shading</p> -->
+               </div>
+            </div>
+            <div class="controlPanel margin5px" id="panel">
+               <table>
+                  <tr>
+                     <td>Light Intensity</td>
+                     <td>
+                        <input class='isoValue' type="range" min="0.05" max="0.95" step="0.05" value="0.5" onchange="updateIsoValue(this.value)"/>
+                     </td>
+                  </tr>
+               </table>
+            </div>
+            <div class="light-btn-container">
+               <button onclick="clickLight()">Light</button>
+               <button onclick="clickDark()">Dark</button>
+            </div>
+         </div>
+         <div class="card-footer text-muted">
+            Work is done by Ji Yang, Yuan Li, Zhifan Lan   
+         </div>
+      </div>
+      <script
+         src="https://code.jquery.com/jquery-3.3.1.min.js"
+         integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+         crossorigin="anonymous"></script>
+      <script type="text/javascript" src="./lib/vtk.min.js"></script>
+      <script src="./lib/jszip.min.js"></script>
+      <script src="./index.js"></script>
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js" integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js" integrity="sha384-uefMccjFJAIv6A+rW+L4AHf99KvxDjWSu1z9VI8SKNVmz4sk7buKt/6v9KI65qnm" crossorigin="anonymous"></script>
+   </body>
+</html>
